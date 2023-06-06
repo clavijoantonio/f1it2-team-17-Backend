@@ -1,6 +1,11 @@
-package com.artGallery.Model;
+package com.artGallery.Evoca.Model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 
 @Entity
@@ -132,3 +137,5 @@ public class userModel {
     private String contraseña;
     private int idRol;
 }
+
+
