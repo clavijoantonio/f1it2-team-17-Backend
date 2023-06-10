@@ -130,6 +130,7 @@ public class userModel {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idUsuario")
 	private Long idUsuario;
 	@Column
     private String nombre;

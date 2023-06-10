@@ -1,5 +1,7 @@
 package com.artGallery.Evoca.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,13 @@ public class userService {
 		
 		return userRepor.save(user);
 		
+	}
+	 public List<userModel> verUsuarios() {
+		return userRepor.findAll();
+		 
+	 }
+	 
+	public userModel findById(Long id) {
+		return userRepor.findById(id).orElse(null);
 	}
 }
