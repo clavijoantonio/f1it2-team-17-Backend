@@ -15,27 +15,47 @@ import jakarta.persistence.Table;
 @Table(name= "usuario")
 public class userModel {
 	
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idUsuario")
+	private Long idUsuario;
+	@Column
+    private String nombre;
+	@Column
+    private String apellido;
+	@Column
+    private String documento;
+	@Column
+    private String telefono;
+	@Column
+    private String direccion;
+	@Column
+    private String Email;
+	@Column
+    private String contraseña;
+	@Column
+    private int idRol;
 	
-    public userModel(Long idUsuario, String nombre, String apellido, String documento, String telefono,
-			String direccion, String usuario, String contraseña, int idRol) {
-		super();
-		this.idUsuario = idUsuario;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.documento = documento;
-		this.telefono = telefono;
-		this.direccion = direccion;
-		this.usuario = usuario;
-		this.contraseña = contraseña;
-		this.idRol = idRol;
-	}
-    
+ 
     
 	public userModel() {
 		super();
 	}
 
 	
+
+	public String getEmail() {
+		return Email;
+	}
+
+
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+
 
 	public Long getIdUsuario() {
 		return idUsuario;
@@ -97,16 +117,6 @@ public class userModel {
 	}
 
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-
 	public String getContraseña() {
 		return contraseña;
 	}
@@ -126,28 +136,6 @@ public class userModel {
 		this.idRol = idRol;
 	}
 
-
-
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idUsuario")
-	private Long idUsuario;
-	@Column
-    private String nombre;
-	@Column
-    private String apellido;
-	@Column
-    private String documento;
-	@Column
-    private String telefono;
-	@Column
-    private String direccion;
-	@Column
-    private String usuario;
-	@Column
-    private String contraseña;
-	@Column
-    private int idRol;
 }
 
 
