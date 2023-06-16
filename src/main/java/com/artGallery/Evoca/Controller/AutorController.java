@@ -19,13 +19,13 @@ import com.artGallery.Evoca.Model.AutorModel;
 import com.artGallery.Evoca.Service.AutorService;
 
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v1/autor")
 public class AutorController {
     
     @Autowired
     private AutorService autorService;
     
-    @PostMapping(value="/autor")
+    @PostMapping
     public ResponseEntity<Object> createAutor(@RequestBody AutorModel autor) {
         try {
             AutorModel createdAutor = autorService.createAutor(autor);
@@ -38,7 +38,7 @@ public class AutorController {
         }
     }
     
-    @GetMapping(value="/autor")
+    @GetMapping
     public ResponseEntity<Object> getAllAutores() {
         try {
             List<AutorModel> autores = autorService.getAllAutores();
@@ -51,7 +51,7 @@ public class AutorController {
         }
     }
     
-    @GetMapping(value="/autor/{id}")
+    @GetMapping(value="/{id}")
     public ResponseEntity<Object> getAutorById(@PathVariable int id) {
         try {
             AutorModel autor = autorService.getAutorById(id);
@@ -70,7 +70,7 @@ public class AutorController {
         }
     }
     
-    @DeleteMapping("/autor/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteAutor(@PathVariable int id) {
         try {
             AutorModel autor = autorService.getAutorById(id);

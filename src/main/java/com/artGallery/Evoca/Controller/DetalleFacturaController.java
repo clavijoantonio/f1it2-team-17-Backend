@@ -27,13 +27,13 @@ import com.artGallery.Evoca.Service.ObraService;
 import com.artGallery.Evoca.Service.userService;
 
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v1/detallefactura")
 public class DetalleFacturaController {
 	
 	@Autowired
 	private DetalleFacturaService detallefactserv ;
 	
-	@PostMapping(value="/detallefactura")
+	@PostMapping
 	public ResponseEntity<Object> create(@RequestBody DetalleFacturaModel detallefactura){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -46,7 +46,7 @@ public class DetalleFacturaController {
 		} 
  	}
 	
-	@GetMapping(value="/detallefactura/{id}")
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Object> getById(@PathVariable Long id){ 
 		try {
 		    DetalleFacturaModel factura  = detallefactserv.findById(id);
@@ -59,7 +59,7 @@ public class DetalleFacturaController {
 		} 
  	}
 
-	@GetMapping(value="/detallefactura")
+	@GetMapping
 	public ResponseEntity<Object> get(){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -72,7 +72,7 @@ public class DetalleFacturaController {
 		} 
  	}
 	
-	@DeleteMapping("/detallefatura/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try { 
@@ -87,7 +87,7 @@ public class DetalleFacturaController {
 		} 
  	}
 	
-	@PutMapping("/detallefactura/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@RequestBody DetalleFacturaModel detallefactura, @PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {

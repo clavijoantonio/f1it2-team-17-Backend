@@ -23,13 +23,13 @@ import com.artGallery.Evoca.Service.ObraService;
 import com.artGallery.Evoca.Service.userService;
 
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v1/obra")
 public class ObraController {
 	
 	@Autowired
 	private ObraService obraserv ;
 	
-	@PostMapping(value="/obra")
+	@PostMapping
 	public ResponseEntity<Object> create(@RequestBody ObraModel obra){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -42,7 +42,7 @@ public class ObraController {
 		} 
  	}
 	
-	@GetMapping(value="/obra/{id}")
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Object> getById(@PathVariable Long id){ 
 		try {
 			ObraModel obra  = obraserv.findById(id);
@@ -55,7 +55,7 @@ public class ObraController {
 		} 
  	}
 
-	@GetMapping(value="/obra")
+	@GetMapping
 	public ResponseEntity<Object> get(){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -68,7 +68,7 @@ public class ObraController {
 		} 
  	}
 	
-	@DeleteMapping("/obra/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try { 
@@ -83,7 +83,7 @@ public class ObraController {
 		} 
  	}
 	
-	@PutMapping("/obra/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@RequestBody ObraModel obra, @PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {

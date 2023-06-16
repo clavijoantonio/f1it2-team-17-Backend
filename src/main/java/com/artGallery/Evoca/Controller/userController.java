@@ -19,19 +19,19 @@ import com.artGallery.Evoca.Model.userModel;
 import com.artGallery.Evoca.Service.userService;
 
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v1/usuario")
 public class userController {
 	
 	@Autowired
 	private userService userserv;
 	
-	@PostMapping(value="/usuario")
+	@PostMapping
     public userModel insertUser (@RequestBody userModel user) {
 		
 		return this.userserv.insertUsuario(user);
 	}
 	
-	@GetMapping(value="/usuario/{id}")
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Object> getById(@PathVariable Long id){ 
 		try {
 			userModel data  = userserv.findById(id);
@@ -44,7 +44,7 @@ public class userController {
 		} 
  	}
 
-	@GetMapping("/usuario")
+	@GetMapping
 	public List<userModel> allPersons(){
 		return userserv.verUsuarios();
 	}

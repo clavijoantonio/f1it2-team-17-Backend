@@ -23,15 +23,26 @@ public class DetalleFacturaModel {
    	private int cantidad;
     @Column
    	private double valor_Total;
+    @Column
+   	private int id_Factura;
     
-    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,CascadeType.REFRESH})
-   	@JoinColumn(name="id_Factura")
-    private FacturaModel factura;
+   /* @ManyToOne(cascade= {CascadeType.PERSIST})
+   	@JoinColumn(name="id_Factura",nullable = false)
+    private FacturaModel factura;*/
     
     
 	public Long getId_Detalle_Factura() {
 		return id_Detalle_Factura;
 	}
+	
+	public int getId_Factura() {
+		return id_Factura;
+	}
+
+	public void setId_Factura(int id_Factura) {
+		this.id_Factura = id_Factura;
+	}
+
 	public void setId_Detalle_Factura(Long id_Detalle_Factura) {
 		this.id_Detalle_Factura = id_Detalle_Factura;
 	}
@@ -54,12 +65,12 @@ public class DetalleFacturaModel {
 	public void setValor_Total(double valor_Total) {
 		this.valor_Total = valor_Total;
 	}
-	public FacturaModel getFactura() {
+	/*public FacturaModel getFactura() {
 		return factura;
 	}
 	public void setFactura(FacturaModel factura) {
 		this.factura = factura;
-	}
+	}*/
     
     
   

@@ -18,25 +18,25 @@ import com.artGallery.Evoca.Model.CategoriaModel;
 import com.artGallery.Evoca.Service.CategoriaService;
 
 @RestController
-@RequestMapping(value = "/api/v1")
+@RequestMapping(value = "/api/v1/categoria")
 public class CategoriaController {
 
     @Autowired
     private CategoriaService categoriaService;
 
-    @PostMapping(value="/categoria")
+    @PostMapping
     public ResponseEntity<Object> crearCategoria(@RequestBody CategoriaModel categoria) {
         CategoriaModel nuevaCategoria = categoriaService.insertarCategoria(categoria);
         return new ResponseEntity<>(nuevaCategoria, HttpStatus.CREATED);
     }
 
-    @GetMapping(value="/categoria")
+    @GetMapping
     public ResponseEntity<Object> obtenerCategorias() {
         List<CategoriaModel> categorias = categoriaService.obtenerCategorias();
         return new ResponseEntity<>(categorias, HttpStatus.OK);
     }
 
-    @GetMapping(value="/categoria/{id}")
+    @GetMapping(value="/{id}")
     public ResponseEntity<Object> obtenerCategoriaPorId(@PathVariable int id) {
         CategoriaModel categoria = categoriaService.obtenerCategoriaPorId(id);
         if (categoria != null) {

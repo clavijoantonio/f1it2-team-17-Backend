@@ -41,13 +41,7 @@ public class userModel {
 	@Column
     private String contraseña;
 	@Column
-    private int idRol;
-
-	public userModel() {
-		super();
-	}
-
-	
+    private int Rol;
 
 	public String getEmail() {
 		return Email;
@@ -131,14 +125,19 @@ public class userModel {
 	}
 
 
-	public int getIdRol() {
-		return idRol;
+
+	public int getRol() {
+		return Rol;
 	}
 
 
-	public void setIdRol(int idRol) {
-		this.idRol = idRol;
+
+	public void setRol(int rol) {
+		Rol = rol;
 	}
+
+
+	
 
 }
 

@@ -25,13 +25,13 @@ import com.artGallery.Evoca.Service.ObraService;
 import com.artGallery.Evoca.Service.userService;
 
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v1/factura")
 public class FacturaController {
 	
 	@Autowired
 	private FacturaService factserv ;
 	
-	@PostMapping(value="/factura")
+	@PostMapping
 	public ResponseEntity<Object> create(@RequestBody FacturaModel factura){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -44,7 +44,7 @@ public class FacturaController {
 		} 
  	}
 	
-	@GetMapping(value="/factura/{id}")
+	@GetMapping(value="/{id}")
 	public ResponseEntity<Object> getById(@PathVariable Long id){ 
 		try {
 		    FacturaModel factura  = factserv.findById(id);
@@ -57,7 +57,7 @@ public class FacturaController {
 		} 
  	}
 
-	@GetMapping(value="/factura")
+	@GetMapping
 	public ResponseEntity<Object> get(){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -70,7 +70,7 @@ public class FacturaController {
 		} 
  	}
 	
-	@DeleteMapping("/fatura/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try { 
@@ -85,7 +85,7 @@ public class FacturaController {
 		} 
  	}
 	
-	@PutMapping("/factura/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@RequestBody FacturaModel factura, @PathVariable Long id){ 
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
